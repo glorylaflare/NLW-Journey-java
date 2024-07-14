@@ -14,6 +14,7 @@ public class ParticipantController {
     @Autowired
     private ParticipantRepository participantRepository;
 
+    //Método para confirmar um participante através do seu UUID, alterando o status de "isConfirmed" de *false* para *true*
     @PostMapping("/{id}/confirm")
     public ResponseEntity<Participant> confirmParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload) {
         Optional<Participant> participant = this.participantRepository.findById(id);
